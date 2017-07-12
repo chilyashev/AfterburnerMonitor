@@ -76,6 +76,7 @@
             // 
             this.btnRefreshCOMPorts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRefreshCOMPorts.AutoEllipsis = true;
+            this.btnRefreshCOMPorts.Image = global::GUIThing.Properties.Resources.arrow_rotate_clockwise;
             this.btnRefreshCOMPorts.Location = new System.Drawing.Point(231, 27);
             this.btnRefreshCOMPorts.Name = "btnRefreshCOMPorts";
             this.btnRefreshCOMPorts.Size = new System.Drawing.Size(23, 23);
