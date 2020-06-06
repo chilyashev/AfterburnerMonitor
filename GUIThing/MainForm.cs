@@ -221,9 +221,22 @@ namespace GUIThing
                     if (responseLength > 0)
                     {
                         var str = System.Text.Encoding.ASCII.GetString(buf, 0, responseLength);
+
                         // Doing this ugly spliting and building the pack again, because the encoding is wrong and I'm too lazy to make it prettier.
                         string[] parts = str.Split(';');
-                        string pack = String.Format("{0:0}C;{1:0}C;{2:0.00};$", Double.Parse(parts[0]), Double.Parse(parts[1]), Double.Parse(parts[2]));
+
+                        Debug.WriteLine(str, "Afterburner data");
+
+                        string pack;
+                        try
+                        {
+                            pack = String.Format("{0:0}C;{1:0}C;{2:0.##};$", Double.Parse(parts[0]), Double.Parse(parts[1]), Double.Parse(parts[2]));
+                        }
+                        catch (Exception fexc)
+                        {
+                            ShowError("Wrong data coming from Afterburner. Check your version and whether MSI Afterburner is running.");
+                            return;
+                        }
                         serial.WriteLine(pack);
                         Debug.WriteLine("\n=================\nRet: {0}, str: {1}\n=================", responseLength, pack);
                     }
